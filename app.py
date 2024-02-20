@@ -1,12 +1,15 @@
 import streamlit as st
 import warnings
-import tensorflow as tf
 from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 from keras.preprocessing import image
-from PIL import ImageEnhance
-from win32com.client import Dispatch
+import platform
+
+if platform.system() == 'Windows':
+    from win32com.client import Dispatch
+
+
 
 warnings.filterwarnings('ignore')
 

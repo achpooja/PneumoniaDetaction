@@ -4,16 +4,13 @@ from keras.models import load_model
 from keras.applications.vgg16 import preprocess_input
 import numpy as np
 from keras.preprocessing import image
-import platform
 
-if platform.system() == "Windows":
-    from win32com.client import Dispatch
+
+
 
 warnings.filterwarnings('ignore')
 
-def speak(str1):
-    speak=Dispatch(("SAPI.SpVoice"))
-    speak.Speak(str1)
+
 
 def main():
     st.title("Pneumonia Detection")
@@ -37,10 +34,10 @@ def main():
 
             if classes[0][0] > 0.5:
                 st.success("Result: No Pneumonia Detected")
-                speak("No Pneumonia Detected")
+               
             else:
                 st.error("Result: Pneumonia Detected")
-                speak("Pneumonia Detected")       
+                 
 
 if __name__ == '__main__':
     main()                         
